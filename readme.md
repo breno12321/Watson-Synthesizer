@@ -66,7 +66,7 @@ npm run setup
  ```bash
  npm start
  ```
- and it will start🙌.
+ and it will start🙌 on `http://localhost:6969` by default port.
 
 
 **IMPORTANT: Application currently supports only PTBR comments, but the provider for Watson T2S is already able to send voice just change the Comment create method**
