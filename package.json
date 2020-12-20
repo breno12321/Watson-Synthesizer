@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env DEBUG=API:* node -r esm src/server.js",
-    "dev": "cross-env DEBUG=API:*,HTTP nodemon --inspect -r esm src/server.js",
+    "dev": "cross-env DEBUG=API:*,HTTP nodemon --ignore './assets/' --ignore './src/Audios' --inspect -r esm src/server.js",
     "setup": "cross-env NODE_ENV=development npx sequelize db:create && npx sequelize db:migrate ",
     "cleanUp": "cross-env NODE_ENV=development npx sequelize db:drop && npm run cleanAudios ",
     "cleanAudios": "node src/utils/cleanUpAudios.js"
