@@ -3,15 +3,30 @@ import { urlencoded, json } from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import path from 'path';
+import Debug from 'debug';
 import router from './routes';
+import { sequelize } from './db/models';
+
+const appLogger = Debug('API:App');
+const httpLogger = Debug('HTTP');
 
 require('dotenv').config();
 // const jwt = require('jsonwebtoken');
 
+// DB Connection
+(async () => {
+  try {
+    await sequelize.authenticate();
+    appLogger('Connection has been established successfully with the database.');
+  } catch (error) {
+    appLogger('Unable to connect to the database: %O', error);
+  }
+})();
+
 const app = express();
 
-app.use(morgan('tiny'));
-
+app.use(morgan('tiny', { stream: { write: (msg) => httpLogger(msg) } }));
+app.disable('x-powered-by');
 app.use(
   urlencoded({
     extended: false,
