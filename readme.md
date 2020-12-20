@@ -22,7 +22,7 @@ This is a simple API with a web interface to create comments and reproduce their
 - MySQL
 - IBM Watson t2s credentials - *create a [Watson T2S free tier account](https://www.ibm.com/watson/services/text-to-speech/)*
 - Git
-- Recommend Linux Environment for this walk throught
+- Recommend Linux Environment for this walk through
 
 ## Step by step to execute 💨
 
