@@ -2,6 +2,8 @@
 
 This is a simple API with a web interface to create comments and reproduce their audios throught the a web interface.
 
+**SUPORTS ONLY PTBR**
+
 ![webpage](./assets/chrome_cTte5ubbpW.png)
 
 ## Development environment
@@ -66,6 +68,9 @@ npm run setup
  ```
  and it will start🙌.
 
+
+**IMPORTANT: Application currently supports only PTBR comments, but the provider for Watson T2S is already able to send voice just change the Comment create method**
+
  ---
 
  OBS.: If you want to do a clean start or make sure everything is ok to rebuild the environment, you can run 
@@ -128,3 +133,4 @@ src
 - Implement an API control requests for monitor API consuption
 - Create a more UX UI friendily interface with more modern design libs
 - Setup a docker-compose file to make 200% easier to boot up the webapp using docker
+- Add suport for more voices and languages
