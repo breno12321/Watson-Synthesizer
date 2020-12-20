@@ -2,7 +2,7 @@
 
 This is a simple API with a web interface to create comments and reproduce their audios throught the a web interface.
 
-![webpage](../smarkio/assets/chrome_cTte5ubbpW.png)
+![webpage](./assets/chrome_cTte5ubbpW.png)
 
 ## Development environment
 
