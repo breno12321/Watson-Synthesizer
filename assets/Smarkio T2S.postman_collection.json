@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "651c8c37-d0cc-4e70-982f-7c2a74b1cfcf",
+		"name": "Smarkio T2S",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "CreateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"Olá, tudo bem com você?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6969/api/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6969/api/comments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:6969/api/comments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WatsonT2S",
+			"item": [
+				{
+					"name": "Create Audio From Text - EN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"All that is gold does not glitter, Not all those who wander are lost; The old that is strong does not wither, Deep roots are not reached by the frost. From the ashes a fire shall be woken, A light from  he shadows shall spring; Renewed shall be blade that was broken, The crownless again shall be king.\",\r\n    \"voice\": \"en-US_MichaelV3Voice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6969/api/t2s/",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"t2s",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Audio From Text - EN 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"push me and, then just touch me, until i get my,,,  satisfaction\",\r\n    \"voice\": \"en-US_MichaelV3Voice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6969/api/t2s/",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"t2s",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Audio From Text - PTBR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Um tapa na goxtosa\",\r\n    \"voice\": \"pt-BR_IsabelaV3Voice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6969/api/t2s/",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"t2s",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Audio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6969/api/t2s/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"api",
+								"t2s",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "comment id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WHOAMI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6969/whoami",
+					"host": [
+						"localhost"
+					],
+					"port": "6969",
+					"path": [
+						"whoami"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
