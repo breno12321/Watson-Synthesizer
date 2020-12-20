@@ -15,7 +15,6 @@ const createCommentController = async (req, res) => {
       return res.status(error.httpStatus).send({
         status: error.httpStatus,
         message: error.message,
-        title: error.title,
       });
     }
     return res.status(500).send({
@@ -37,7 +36,6 @@ const findAllCommentsController = async (req, res) => {
       return res.status(error.httpStatus).send({
         status: error.httpStatus,
         message: error.message,
-        title: error.title,
       });
     }
     return res.status(500).send({

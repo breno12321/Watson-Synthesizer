@@ -1,3 +1,5 @@
+import fs from 'fs';
+import { ErrorHandler } from '../../utils/ErrorHandler';
 import { createAudioAndStore, getAudio } from './WatsonT2S';
 
 /**
@@ -13,9 +15,16 @@ const createAudioAndStoreController = async (req, res) => {
     }
 
     const commentAudio = await createAudioAndStore(text, voice);
+
     res.writeHead(200, ['Content-Type', 'audio/mp3']);
     return res.end(Buffer.from(commentAudio.audio, 'base64'));
   } catch (error) {
+    if (error instanceof ErrorHandler) {
+      return res.status(error.httpStatus).send({
+        status: error.httpStatus,
+        message: error.message,
+      });
+    }
     return res.status(500).send({
       status: 500,
       message: error.message,
@@ -36,9 +45,17 @@ const readAudioStreamController = async (req, res) => {
     }
 
     const file = await getAudio(id);
-
-    return res.sendFile(file);
+    if (fs.existsSync(file)) {
+      return res.sendFile(file);
+    }
+    throw new ErrorHandler('File Does Not Exist', 404);
   } catch (error) {
+    if (error instanceof ErrorHandler) {
+      return res.status(error.httpStatus).send({
+        status: error.httpStatus,
+        message: error.message,
+      });
+    }
     return res.status(500).send({
       status: 500,
       message: error.message,

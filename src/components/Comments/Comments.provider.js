@@ -24,7 +24,7 @@ const create = async (text, audioFile) => {
     audioFile,
   });
   if (createdComment) return createdComment;
-  throw new ErrorHandler('Comment could not be created', 'Database Error', 500);
+  throw new ErrorHandler('Comment could not be created', 500);
 };
 
 /**
@@ -35,7 +35,7 @@ const findAll = async () => {
   /** @type {Comment} */
   const allComments = await Comments.findAll();
   if (allComments) return allComments;
-  throw new ErrorHandler('Could Not find All Comments', 'Database Error', 404);
+  throw new ErrorHandler('Could Not find All Comments', 404);
 };
 
 /**
@@ -47,7 +47,7 @@ const findOne = async (id) => {
   /** @type {Comment} */
   const comment = await Comments.findOne({ where: { id } });
   if (comment) return comment;
-  throw new Error('Could Not find Comment', 'Database Error', 404);
+  throw new ErrorHandler('Could Not find Comment', 404);
 };
 
 /**
@@ -59,7 +59,7 @@ const remove = async (id) => {
   /** @type {Comment} */
   const deletedComment = await Comments.destroy({ where: { id } });
   if (deletedComment) return deletedComment;
-  throw new ErrorHandler('Could not delete Comment', 'Database Error', 500);
+  throw new ErrorHandler('Could not delete Comment', 500);
 };
 
 export {

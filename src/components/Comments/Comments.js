@@ -7,7 +7,7 @@ import { create, findAll } from './Comments.provider';
  * @
  */
 const createCommentAndAudio = async (text) => {
-  if (!text || text === '') throw new ErrorHandler('Text must not be empty', 'Invalid input', 400);
+  if (!text || text === '') throw new ErrorHandler('Text must not be empty', 400);
 
   const audioData = await createAudioAndStore(text);
 
@@ -26,7 +26,7 @@ const listAllComments = async () => {
  * @param  {Number} id
  */
 const getOneComment = async (id) => {
-  if (!id || typeof id !== 'number') throw new ErrorHandler('Invalid id', 'Invalid input', 400);
+  if (!id || typeof id !== 'number') throw new ErrorHandler('Invalid id', 400);
 };
 
 const deleteComment = async (id) => {
