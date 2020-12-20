@@ -13,10 +13,10 @@ import { createAudio } from './WatsonT2S.provider';
 
 /**
  * @param  {String} text
- * @param  {String} [voice=en-US_MichaelV3Voice] - voice
+ * @param  {String} [voice=pt-BR_IsabelaV3Voice] - voice
  * @return {Promise<CreateAudio>}
  */
-const createAudioAndStore = async (text, voice = 'en-US_MichaelV3Voice') => {
+const createAudioAndStore = async (text, voice = 'pt-BR_IsabelaV3Voice') => {
   if (!text) {
     throw new Error('Text not provided');
   }
