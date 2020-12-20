@@ -12,11 +12,10 @@ const createComment = (text) => {
     });
     const content = await createdComment.json();
     if (content.status !== 201) {
-      window.alert(content.message);
+      window.alert('Erro ao criar comentário tente novamente em alguns minutos 🤔');
     } else {
       loadComment(content.data.text, content.data.id);
       $('.loader').fadeOut('fast');
-      console.log(content);
     }
   })();
 };
@@ -26,12 +25,16 @@ const playAudio = async (id) => {
   const audio = await fetch(`http://localhost:6969/api/t2s/${id}`, {
     method: 'GET',
   });
-  const arrayBuffer = await audio.arrayBuffer();
-  const audioBuffer = await context.decodeAudioData(arrayBuffer);
-  const source = context.createBufferSource();
-  source.buffer = audioBuffer;
-  source.connect(context.destination);
-  source.start();
+  if (!audio.ok) {
+    window.alert('Erro ao resgatar arquivo solicitado 😢');
+  } else {
+    const arrayBuffer = await audio.arrayBuffer();
+    const audioBuffer = await context.decodeAudioData(arrayBuffer);
+    const source = context.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(context.destination);
+    source.start();
+  }
 };
 
 const loadComment = (text, id) => {
@@ -51,7 +54,7 @@ const loadComment = (text, id) => {
 
   // hooking the element to event handler
   const playButton = $('.play-button').filter(`button[data-id=${id}]`);
-  console.log(playButton);
+
   playButton.click(() => {
     playAudio(id);
   });
@@ -65,12 +68,10 @@ const getAllComments = async () => {
 
     const allCommentsParsed = await allComments.json();
     allCommentsParsed.data.forEach((comment) => {
-      console.log({ id: comment.id, audioFile: comment.audioFile, text: comment.text });
       loadComment(comment.text, comment.id);
     });
   } catch (error) {
-    window.alert('Erro ao carregar comentários, tente novamente');
-    window.alert(error);
+    window.alert('Erro ao carregar comentários 😭, tente novamente');
   }
 };
 
