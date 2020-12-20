@@ -8,7 +8,7 @@ const { Comments } = require('../../db/models');
  * @property {String} audioFile
  * @property {String} createdAt
  * @property {String} updatedAt
- * @property {Number} id} text
+ * @property {Number} id text
  */
 
 /**
@@ -52,7 +52,7 @@ const findOne = async (id) => {
 
 /**
  * @param  {Number} id
- * @return {Promise<Comment[]>} Resolved Created Comment
+ * @return {Promise<number>} Rows Affected
  *
  */
 const remove = async (id) => {
